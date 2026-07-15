@@ -1,4 +1,5 @@
 # ESP32-P4 GO-Pro
+<img width="1564" height="1006" alt="image" src="https://github.com/user-attachments/assets/96ae182b-3dbd-4d3a-afa1-bb431c775fef" />
 
 ## Overview
 
