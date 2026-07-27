@@ -1,0 +1,8 @@
+# Managed dependencies for the ESP-IDF component manager.
+# Pulled in automatically on the next `idf.py reconfigure` / PlatformIO build.
+# esp_video transitively brings in esp_cam_sensor, esp_ipa and esp_h264, but
+# esp_h264 is listed explicitly too since main.cpp includes esp_h264_enc.h
+# directly.
+dependencies:
+  espressif/esp_video: "*"
+  espressif/esp_h264: "*"
