@@ -39,7 +39,7 @@ A complete `bom.csv` is included in the repository (`docs/BOM.csv`). Primary com
 
 | Component | Description | Qty | Price (USD) | Source |
 | :--- | :--- | :--- | :--- | :--- |
-| **Microcontroller** | Waveshare ESP32-P4 Module (w/ camera connector) | 1 | TBD — confirm at checkout | [Amazon](https://amzn.eu/d/0bZVOaVJ) |
+| **Microcontroller** | Waveshare ESP32-P4 Module (w/ camera connector) | 1 | ~$21.89 | [Amazon](https://amzn.eu/d/0bZVOaVJ) |
 | **Camera** | Compatible Camera Module | 1 | ~$7.01 | [AliExpress](https://fr.aliexpress.com/item/1005004540834095.html) |
 | **Battery** | LiPo Battery | 1 | ~$10.50 | [AliExpress](https://fr.aliexpress.com/item/1005009589383276.html) |
 | **Power Management** | Battery Charging Module | 1 | ~$0.95 | [AliExpress](https://fr.aliexpress.com/item/1005005037876729.html) |
