@@ -35,14 +35,16 @@ The custom enclosure was designed in Onshape.
 
 ## Bill of Materials (BOM)
 
-A complete `bom.csv` is included in the repository. Primary components include:
+A complete `bom.csv` is included in the repository (`docs/BOM.csv`). Primary components include:
 
-| Component | Description | Source |
-| :--- | :--- | :--- |
-| **Microcontroller** | Waveshare ESP32-P4 Module (w/ camera connector) | [Amazon](https://amzn.eu/d/0bZVOaVJ) |
-| **Camera** | Compatible Camera Module | [AliExpress](https://fr.aliexpress.com/item/1005004540834095.html) |
-| **Battery** | LiPo Battery | [AliExpress](https://fr.aliexpress.com/item/1005009589383276.html) |
-| **Power Management** | Battery Charging Module | [AliExpress](https://fr.aliexpress.com/item/1005005037876729.html) |
+| Component | Description | Qty | Price (USD) | Source |
+| :--- | :--- | :--- | :--- | :--- |
+| **Microcontroller** | Waveshare ESP32-P4 Module (w/ camera connector) | 1 | TBD — confirm at checkout | [Amazon](https://amzn.eu/d/0bZVOaVJ) |
+| **Camera** | Compatible Camera Module | 1 | ~$7.01 | [AliExpress](https://fr.aliexpress.com/item/1005004540834095.html) |
+| **Battery** | LiPo Battery | 1 | ~$10.50 | [AliExpress](https://fr.aliexpress.com/item/1005009589383276.html) |
+| **Power Management** | Battery Charging Module | 1 | ~$0.95 | [AliExpress](https://fr.aliexpress.com/item/1005005037876729.html) |
+
+
 
 
 
@@ -50,22 +52,24 @@ A complete `bom.csv` is included in the repository. Primary components include:
 
 ## Firmware & Software
 
+The firmware targets the ESP-IDF framework directly (not Arduino — ESP32-P4 Arduino/PlatformIO-Arduino support is still unstable, Espressif itself recommends ESP-IDF for this chip at this stage). It's built with [PlatformIO](https://platformio.org/), which wraps ESP-IDF's build system for you.
+
 **Prerequisites:**
-* Arduino IDE (for compiling and flashing the firmware)
-* Required C headers/dependencies:
+* [PlatformIO](https://platformio.org/install) (CLI or the VS Code extension)
+* That's it locally — PlatformIO downloads the ESP-IDF toolchain itself on first build.
 
-#include <stdio.h>
+**Dependencies:**
+This project uses Espressif's official camera/video stack for the ESP32-P4, declared in [`src/idf_component.yml`](Firmware/src/idf_component.yml) and pulled automatically by the IDF Component Manager on first build (no manual download needed):
+* [`espressif/esp_video`](https://components.espressif.com/components/espressif/esp_video) — V4L2-compatible camera driver framework for the ESP32-P4's MIPI-CSI interface. Transitively brings in `esp_cam_sensor` (OV5647 sensor driver), `esp_ipa` (image processing/AE/AWB), and `esp_sccb_intf` (camera control bus).
+* [`espressif/esp_h264`](https://components.espressif.com/components/espressif/esp_h264) — hardware-accelerated H.264 encoder, used to encode video on the fly while recording.
+* Everything else (FATFS, SDMMC host driver, GPIO, deep sleep) ships as part of ESP-IDF itself — no extra install.
 
-#include "esp_log.h"
+**Building & flashing:**
+```bash
+cd Firmware
+pio run              # build
+pio run -t upload    # flash over USB-C
+pio device monitor    # serial log at 115200 baud
+```
 
-#include "esp_sleep.h"
-
-#include "driver/gpio.h"
-
-#include "esp_video.h"
-
-#include "esp_h264_enc.h"
-
-#include "esp_vfs_fat.h"
-
-#include "sdmmc_cmd.h"
+**How it works:** the board deep-sleeps between button presses to save battery. A single click on BOOT starts recording (click again to stop); three clicks within 800 ms takes a photo. See the comment block at the top of `src/main.cpp` for the handful of hardware-specific details (exact button GPIO, deep-sleep wakeup API) worth double-checking against your specific board revision before you rely on it.
