@@ -53,3 +53,12 @@ A complete `bom.csv` is included in the repository. Primary components include:
 **Prerequisites:**
 * Arduino IDE (for compiling and flashing the firmware)
 * Required C headers/dependencies:
+
+#include <stdio.h>
+#include "esp_log.h"
+#include "esp_sleep.h"
+#include "driver/gpio.h"
+#include "esp_video.h"
+#include "esp_h264_enc.h"
+#include "esp_vfs_fat.h"
+#include "sdmmc_cmd.h"
