@@ -30,8 +30,15 @@ The custom enclosure was designed in Onshape.
  **Case Details:** <img width="2618" height="1104" alt="image" src="https://github.com/user-attachments/assets/e4819c45-e481-4600-a14e-db278e0982d8" />
 
  **Wiring Diagram:** <img width="2458" height="1412" alt="image" src="https://github.com/user-attachments/assets/9b1bf089-3414-4471-bdf2-81364a377213" />
+ 
+---
 
+## Assembly Instructions
 
+ 1. To print the case, use a 0.2 mm layer height. You can use any material, but PLA or PLA silk is preferred due to its dimensional accuracy. With 15% infill being enough for structural integrity. 
+
+ 2. To assemble the device, first wire all of the components together as shown in the wiring diagram making sure to carefully connect the camera with its ribbon connector into the camera connection slot on the main board then push the camera into its press-fit hole and push in the main ESP32-P4 board on top of it. you may then use tape or double-sided tape to secure the battery to the main board and to push the small charging board into its USB-C hole. This is enough to hold it down. Then finally, you may snap on the back lid. 
+ 
 ---
 
 ## Bill of Materials (BOM)
