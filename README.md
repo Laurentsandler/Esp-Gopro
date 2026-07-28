@@ -10,7 +10,7 @@ I wanted to build a small action camera that can record me biking, among other c
 
 ## Usage
 
-1. Connect the battery to the charger board, and connect the charger board to the mainboar.
+1. Connect the battery to the charger board, and connect the charger board to the mainboard.
 2. Press the flex boot button to capture photos or start/stop recording.
 3. Recharge using the USB-C port(on the charger board).
 
