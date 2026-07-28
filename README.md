@@ -29,7 +29,8 @@ The custom enclosure was designed in Onshape.
 
  **Case Details:** <img width="2618" height="1104" alt="image" src="https://github.com/user-attachments/assets/e4819c45-e481-4600-a14e-db278e0982d8" />
 
- **Wiring Diagram:** *[Insert screenshot of the wiring diagram]*
+ **Wiring Diagram:** <img width="2458" height="1412" alt="image" src="https://github.com/user-attachments/assets/9b1bf089-3414-4471-bdf2-81364a377213" />
+
 
 ---
 
