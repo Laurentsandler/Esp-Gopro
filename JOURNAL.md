@@ -8,13 +8,20 @@ created_at: "2026-06-19"
 
 # June 19: Created the concept and picked parts
 
-Initially, I wanted to build a custom PCB with the ESP32-P4 for this project, but the ESP32-P4 was not yet available for JLCPCB assembly. So, I had to resort to using prebuilt components.
+Why the ESP32-P4 at all
+
+I picked the P4 over the ESP32-S3 because I needed the ability to record video at a usable frame rate and quality, this requires a hardware video encoder and well as MIPI_CSI input, This is enough for video at 1080p30. The tradeoff i'm going to have the accept is no native wifi support without a sister ESP32-C6 chip.
+
+The custom PCB endeavor
+
+My first plan was a custom PCB with a bare ESP32-P4 module, so I could put the camera connector, charger, and battery management on a single board sized exactly to the case. I spent about ~10 minutes in JLCPCB's parts library searching, before I found out that that the ESP32-P4 isn't stocked for assembly yet.
+and dealing with soldering under pcb pins is a headache, so I had to resort to a prebuilt module.
 
 I found this Waveshare ESP32-P4 module with a camera connector.
 
 <img width="1622" height="722" alt="Waveshare ESP32-P4 module" src="https://github.com/user-attachments/assets/c0969340-c764-4e42-912f-5dd5786fe05e" />
 
-Finding a suitable camera was trickier, as this board does not have a standard OV5640 connector, so I needed a compatible camera.
+Finding a suitable camera was trickier, as this board does not have a standard OV5640 connector, it uses one similar to the one on a raspberry pi 02w. So I needed a compatible camera.
 
 <img width="1622" height="722" alt="Camera" src="https://github.com/user-attachments/assets/002ce065-a99e-400f-85c5-32607f43d231" />
 
@@ -30,7 +37,9 @@ I also needed a battery charging module.
 
 # June 19: Designed the case
 
-I designed the case in Onshape, with flex buttons for the reset and boot buttons. The boot button will serve as the only interactive button. I also added holes for the onboard microphone, camera, and USB-C charging port, as well as a snap-on lid.
+I designed the case in Onshape, with flex buttons for the reset and boot buttons. The boot button will serve as the only interactive button. I also added holes for the onboard microphone, camera, and USB-C charging port, as well as a snap-on lid. Rather than mounting physical switches, I made the reset and boot buttons as hinge flexures in the case wall, which are thin sections of plastic that bend enough to press the board's onboard tactile switches.
+
+The boot button doubles as the only user control: start/stop recording, and to take photos. Reset stays the same. The chip is kept in a low power state until the button is pressed to start recording or too take a photo.
 
 <img width="1590" height="914" alt="Case design" src="https://github.com/user-attachments/assets/4b4dc32f-6a65-48c8-b79e-e28a60ff42f3" />
 
