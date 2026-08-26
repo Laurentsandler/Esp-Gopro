@@ -41,6 +41,19 @@ I designed the case in Onshape, with flex buttons for the reset and boot buttons
 
 The boot button doubles as the only user control: start/stop recording, and to take photos. Reset stays the same. The chip is kept in a low power state until the button is pressed to start recording or too take a photo.
 
+**Design thought process**
+
+* **Why hinge flexures over physical switches:** This was done to simplify the case, and reduce the part count. I wanted the case to just be two parts that you join together, with mounting holes on the inside.
+* **Flexure dimensions:** The tab is 2.3mm in width, and 8.12mm in height, with a 0.5mm gap in between the tab and the rest of the case.
+<img width="2062" height="1428" alt="image" src="https://github.com/user-attachments/assets/47e6d801-5b9d-4b8e-bd77-cd649dce256b" /> 
+
+
+
+  
+* **Snap-fit lid:** I used a 0.2mm tolerance as per my 3d printers tolerance measurement, this is also the standard tolerance for most other 3d printers
+* **Camera/mic/USB-C cutouts:** I used a picture of the board overlayed under my sketch, to help place the button tabs, camera, and mic cutouts.
+
+
 <img width="1590" height="914" alt="Case design" src="https://github.com/user-attachments/assets/4b4dc32f-6a65-48c8-b79e-e28a60ff42f3" />
 
 <img width="1590" height="914" alt="Case design" src="https://github.com/user-attachments/assets/74ecd056-443d-4e5f-af45-cf0e833cb9e6" />
